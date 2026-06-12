@@ -40,7 +40,7 @@ export default function About() {
               dedicated to empowering aspiring tech professionals with the skills, knowledge, and real-world experience they need to succeed.
             </p>
             <p className="text-base text-gray-600 leading-relaxed mb-8">
-              Our carefully designed 6-month programs are intensive, practical, and career-focused. We don't just teach theory —
+              Our carefully designed 6-month programs are intensive, practical, and career-focused. We don&apos;t just teach theory —
               we build real-world problem solvers who are ready to step into the workforce from day one. Upon graduation, every
               student receives a guaranteed internship placement to launch their career with confidence.
             </p>
