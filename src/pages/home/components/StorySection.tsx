@@ -1,3 +1,5 @@
+import storyVideo from '../../../videos/story.mp4';
+
 export default function StorySection() {
   return (
     <section id="our-story" className="py-28 px-6 lg:px-12 bg-white">
@@ -22,9 +24,8 @@ export default function StorySection() {
             className="w-full h-full object-cover"
             controls
             playsInline
-            poster="/story-poster.jpg"
           >
-            <source src="/src/videos/story.mp4" type="video/mp4" />
+            <source src={storyVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
