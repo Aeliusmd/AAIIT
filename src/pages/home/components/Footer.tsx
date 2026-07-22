@@ -1,4 +1,5 @@
 import InfiniteA from '@/pages/home/components/InfiniteA';
+import logo from '@/images/Logo.png';
 
 export default function Footer() {
   const scrollToSection = (id: string) => {
@@ -18,7 +19,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
               <img
-                src="src\images\Logo.png"
+                src={logo}
                 alt="AAIIT Logo"
                 className="w-22 h-16 pb-4 "
               />

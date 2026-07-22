@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import logo from '@/images/Logo.png';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,7 +44,7 @@ export default function Navbar() {
             className="flex items-center space-x-3 cursor-pointer group"
           >
             <img
-              src="src\images\Logo.png"
+              src={logo}
               alt="AAIIT Logo"
               className="w-28 h-28 object-contain rounded-lg"
             />
