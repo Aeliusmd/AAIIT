@@ -94,9 +94,9 @@ export default function Contact() {
 
             <div className="space-y-6 mb-10">
               {[
-                { icon: 'ri-mail-line', label: 'Email', value: 'info@aaiit.academy', href: 'mailto:info@aaiit.academy' },
-                { icon: 'ri-phone-line', label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-                { icon: 'ri-map-pin-line', label: 'Location', value: 'Coming Soon — First Batch Launching 2025', href: '#' },
+                { icon: 'ri-mail-line', label: 'Email', value: 'Info@AAIIT.lk', href: 'mailto:Info@AAIIT.lk' },
+                { icon: 'ri-phone-line', label: 'Phone', value: '0778449897', href: 'tel:0778449897' },
+                { icon: 'ri-map-pin-line', label: 'Location', value: '01st floor,301/2, 1/1,Galle road, kollupitiya,00300 — First Batch Launching 2026', href: '#' },
               ].map((item) => (
                 <div key={item.label} className="flex items-start space-x-4">
                   <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-blue-200/60 flex-shrink-0">
