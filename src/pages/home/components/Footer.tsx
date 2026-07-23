@@ -86,7 +86,7 @@ export default function Footer() {
                 { icon: 'ri-linkedin-box-fill', label: 'LinkedIn', href: 'https://linkedin.com' },
                 { icon: 'ri-facebook-box-fill', label: 'Facebook', href: 'https://facebook.com' },
                 { icon: 'ri-instagram-fill', label: 'Instagram', href: 'https://instagram.com' },
-                { icon: 'ri-mail-fill', label: 'info@aaiit.academy', href: 'mailto:info@aaiit.academy' },
+                { icon: 'ri-mail-fill', label: 'Info@AAIIT.lk', href: 'mailto:Info@AAIIT.lk' },
               ].map((social) => (
                 <li key={social.label}>
                   <a
