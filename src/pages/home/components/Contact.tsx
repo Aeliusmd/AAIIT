@@ -8,8 +8,8 @@ export default function Contact() {
     phone: '',
     program: '',
     message: '',
-    website_alt: '',
   });
+  // Honeypot kept out of controlled state so browser autofill cannot fake success
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -18,44 +18,42 @@ export default function Contact() {
 
     if (formData.message.length > 500) return;
 
-    if (formData.website_alt.trim() !== '') {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', program: '', message: '', website_alt: '' });
-      return;
-    }
+    const form = e.currentTarget as HTMLFormElement;
+    const honeypot = (form.elements.namedItem('company_url') as HTMLInputElement | null)?.value?.trim() || '';
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
     try {
-      const formBody = new URLSearchParams();
-      formBody.append('name', formData.name);
-      formBody.append('email', formData.email);
-      formBody.append('phone', formData.phone);
-      formBody.append('program', formData.program);
-      formBody.append('message', formData.message);
-
-      const response = await fetch('https://readdy.ai/api/form/d8l9or1ph3sqjdbur81g', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formBody.toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          program: formData.program,
+          message: formData.message,
+          website_alt: honeypot,
+        }),
       });
 
-      const responseText = await response.text();
-      let parsed: any;
-      try {
-        parsed = JSON.parse(responseText);
-      } catch {
-        parsed = null;
-      }
+      const parsed = await response.json().catch(() => null);
+
+      console.log('[contact] API status:', response.status);
+      console.log('[contact] API response:', parsed);
 
       if (response.ok && parsed?.code === 'OK') {
+        console.log('[contact] Email sent successfully', parsed.messageId ? `(id: ${parsed.messageId})` : '');
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', program: '', message: '', website_alt: '' });
+        setFormData({ name: '', email: '', phone: '', program: '', message: '' });
+        form.reset();
       } else {
+        console.error('[contact] Email NOT sent:', parsed?.message || 'Unknown error');
         setSubmitStatus('error');
       }
-    } catch {
+    } catch (error) {
+      console.error('[contact] Request failed — email NOT sent:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -141,17 +139,17 @@ export default function Contact() {
             </h3>
             <p className="text-gray-500 text-sm mb-7">Fill out the form and our team will contact you within 24 hours.</p>
 
-            <form id="aaiit-contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-5">
-              <input
-                type="text"
-                name="website_alt"
-                value={formData.website_alt}
-                onChange={handleChange}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                readOnly={false}
-              />
+            <form id="aaiit-contact-form" onSubmit={handleSubmit} className="space-y-5">
+              <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+                <label htmlFor="company_url">Company website</label>
+                <input
+                  type="text"
+                  id="company_url"
+                  name="company_url"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
 
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1.5" style={{ fontFamily: "'Inclusive Sans', sans-serif" }}>
