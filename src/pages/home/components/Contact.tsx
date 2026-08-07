@@ -183,7 +183,7 @@ export default function Contact() {
                   type="tel" id="phone" name="phone"
                   value={formData.phone} onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all text-sm"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+94 (555) 000-0000"
                 />
               </div>
 
