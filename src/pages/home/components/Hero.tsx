@@ -113,20 +113,54 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  {[
-                    { title: 'Quality Assurance (QA)', icon: 'ri-shield-check-line', color: 'bg-blue-100 text-blue-700' },
-                    { title: 'AI + Fullstack Development', icon: 'ri-brain-line', color: 'bg-blue-100 text-blue-700' },
-                    { title: 'Business Analysis', icon: 'ri-bar-chart-2-line', color: 'bg-blue-100 text-blue-700' },
-                  ].map((prog) => (
-                    <div key={prog.title} className="flex items-center space-x-3 bg-gray-50 px-4 py-3 rounded-xl border border-gray-100">
-                      <div className={`w-8 h-8 flex items-center justify-center rounded-lg ${prog.color}`}>
-                        <i className={`${prog.icon} text-sm`}></i>
-                      </div>
-                      <span className="text-gray-800 text-sm font-medium">{prog.title}</span>
-                    </div>
-                  ))}
-                </div>
+               <div className="space-y-4">
+  {[
+    {
+      title: 'Quality Assurance (QA)',
+      icon: 'ri-shield-check-line',
+      color: 'bg-blue-100 text-blue-700',
+      status: 'Registration Open',
+      badge: 'bg-green-100 text-green-700',
+    },
+    {
+      title: 'AI + Fullstack Development',
+      icon: 'ri-brain-line',
+      color: 'bg-blue-100 text-blue-700',
+      status: 'Starting Soon',
+      badge: 'bg-amber-100 text-amber-700',
+    },
+    {
+      title: 'Business Analysis',
+      icon: 'ri-bar-chart-2-line',
+      color: 'bg-blue-100 text-blue-700',
+      status: 'Starting Soon',
+      badge: 'bg-amber-100 text-amber-700',
+    },
+  ].map((prog) => (
+    <div
+      key={prog.title}
+      className="flex items-center justify-between bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 hover:border-blue-200 transition-all"
+    >
+      <div className="flex items-center space-x-3">
+        <div
+          className={`w-8 h-8 flex items-center justify-center rounded-lg ${prog.color}`}
+        >
+          <i className={`${prog.icon} text-sm`}></i>
+        </div>
+
+        <span className="text-gray-800 text-sm font-medium">
+          {prog.title}
+        </span>
+      </div>
+
+      <span
+        className={`px-3 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap ${prog.badge}`}
+      >
+        {prog.status}
+      </span>
+    </div>
+  ))}
+</div>
 
                 <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
                   <div className="flex -space-x-2">
