@@ -92,7 +92,7 @@ export default function Contact() {
 
             <div className="space-y-6 mb-10">
               {[
-                { icon: 'ri-mail-line', label: 'Email', value: 'Info@AAIIT.lk', href: 'mailto:Info@AAIIT.lk' },
+                { icon: 'ri-mail-line', label: 'Email', value: 'info@aaiit.lk', href: 'mailto:info@aaiit.lk' },
                 { icon: 'ri-phone-line', label: 'Phone', value: '0778449897', href: 'tel:0778449897' },
                 { icon: 'ri-map-pin-line', label: 'Location', value: '01st floor,301/2, 1/1,Galle road, kollupitiya,00300', href: '#' },
               ].map((item) => (
