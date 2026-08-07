@@ -198,9 +198,9 @@ export default function Contact() {
                 >
                   <option value="">Select a program</option>
                   <option value="qa">Quality Assurance (QA)</option>
-                  <option value="ai-fullstack">AI with Fullstack Development</option>
+                  {/* <option value="ai-fullstack">AI with Fullstack Development</option>
                   <option value="business-analysis">Business Analysis</option>
-                  <option value="undecided">Not sure yet — need guidance</option>
+                  <option value="undecided">Not sure yet — need guidance</option> */}
                 </select>
               </div>
 
