@@ -34,12 +34,6 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:w-1/2">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 border border-blue-300/50 px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-              <span className="text-blue-700 text-sm font-medium" style={{ fontFamily: "'Inclusive Sans', sans-serif" }}>
-                Now Enrolling — Batch 2026
-              </span>
-            </div>
 
             <h1
               className="text-5xl lg:text-7xl mb-6 leading-tight text-gray-800"
@@ -130,9 +124,6 @@ export default function Hero() {
                         <i className={`${prog.icon} text-sm`}></i>
                       </div>
                       <span className="text-gray-800 text-sm font-medium">{prog.title}</span>
-                      <div className="ml-auto">
-                        <span className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded-full whitespace-nowrap">6 Months</span>
-                      </div>
                     </div>
                   ))}
                 </div>
